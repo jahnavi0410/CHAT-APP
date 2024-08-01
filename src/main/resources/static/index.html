@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Spring Boot WebSocket Chat Application | CalliCoder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css" />
+    <style>
+        body {
+            background: url("Team-Chat-Apps.jpg") no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .overlay {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+        #messageArea {
+            list-style-type: none;
+            padding: 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        #messageArea li {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+        }
+        .connecting {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        <h2>Sorry! Your browser doesn't support Javascript</h2>
+    </noscript>
+
+    <div id="username-page" class="overlay">
+        <div class="text-center">
+            <h1 class="title">Type your username</h1>
+            <form id="usernameForm" name="usernameForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Start Chatting</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="chat-page" class="hidden overlay">
+        <div class="chat-container">
+            <div class="chat-header text-center">
+                <h2>JavaTechie Global Chat Box</h2>
+            </div>
+            <div class="connecting alert alert-info">Connecting...</div>
+            <ul id="messageArea" class="list-unstyled"></ul>
+            <form id="messageForm" name="messageForm">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control" />
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
